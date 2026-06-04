@@ -83,3 +83,9 @@ h6 {
 .hidden {
   display: none;
 }
+
+/* ### GENERAL STYLING ### */
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+}
