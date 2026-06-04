@@ -63,3 +63,9 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/* ### UTILITIES ### */
+
+.hidden {
+  display: none;
+}
