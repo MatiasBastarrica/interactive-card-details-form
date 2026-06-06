@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="icon"
       type="image/png"
@@ -20,16 +20,18 @@
   </head>
   <body>
     <div class="card-display">
+      <div class="decorative-bg"></div>
       <div class="card-back-container">
-        <img src="./images/bg-card-back.png" alt="" />
         <div class="card-back__cvc">000</div>
       </div>
       <div class="card-front-container">
-        <img src="./images/bg-card-front.png" alt="" />
-        <div class="card-front__number">0000 0000 0000 0000</div>
-        <div class="card-front-details-container">
-          <div class="card-front__name">Jane Appleseed</div>
-          <div class="card-front__expiration-date">00/00</div>
+        <img src="./images/card-logo.svg" alt="" class="front-card-img" />
+        <div class="wrapper">
+          <div class="card-front__number">0000 0000 0000 0000</div>
+          <div class="card-front-details-container">
+            <div class="card-front__name">Jane Appleseed</div>
+            <div class="card-front__expiration-date">00/00</div>
+          </div>
         </div>
       </div>
     </div>
@@ -47,7 +49,7 @@
         <div>
           <label for="card-number">Card Number</label>
           <input
-            type="number"
+            type="text"
             name="card-number"
             id="card-number"
             placeholder="e.g. 1234 5678 9123 0000"
@@ -58,13 +60,15 @@
             <div class="form-col">
               <fieldset>
                 <legend>Exp. Date (MM/YY)</legend>
-                <input type="number" name="month" id="month" placeholder="MM" />
-                <input type="number" name="year" id="year" placeholder="YY" />
+                <div class="wrapper">
+                  <input type="text" name="month" id="month" placeholder="MM" />
+                  <input type="text" name="year" id="year" placeholder="YY" />
+                </div>
               </fieldset>
             </div>
             <div class="form-col">
               <label for="cvc">CVC</label>
-              <input type="number" name="cvc" id="cvc" placeholder="e.g. 123" />
+              <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" />
             </div>
           </div>
         </div>
