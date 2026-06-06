@@ -56,6 +56,16 @@ input {
   padding: 0.5rem 1rem;
   border-radius: 0.4rem;
   border: 1px solid var(--gray-200);
+  color: var(--purple-950);
+}
+
+input:focus {
+  border-color: purple;
+  outline: none;
+}
+
+input:invalid {
+  border-color: var(--red-400);
 }
 
 label {
