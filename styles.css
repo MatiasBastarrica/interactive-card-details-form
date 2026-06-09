@@ -110,6 +110,12 @@ h6 {
   display: none;
 }
 
+.invalid-message {
+  color: var(--red-400);
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+}
+
 /* ### GENERAL STYLING ### */
 
 body {
@@ -222,7 +228,6 @@ legend {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 0.5rem;
 }
 
