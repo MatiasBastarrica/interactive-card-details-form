@@ -21,16 +21,23 @@
   <body>
     <div class="card-display">
       <div class="decorative-bg"></div>
-      <div class="card-back-container">
-        <div class="card-back__cvc">000</div>
-      </div>
-      <div class="card-front-container">
-        <img src="./images/card-logo.svg" alt="" class="front-card-img" />
-        <div class="wrapper">
-          <div class="card-front__number">0000 0000 0000 0000</div>
-          <div class="card-front-details-container">
-            <div class="card-front__name">Jane Appleseed</div>
-            <div class="card-front__expiration-date">00/00</div>
+      <div class="wrapper">
+        <div class="card-back-container">
+          <div class="card-back__cvc">000</div>
+        </div>
+        <div class="card-front-container">
+          <img src="./images/card-logo.svg" alt="" class="front-card-img" />
+          <div class="wrapper">
+            <div class="card-front__number">
+              <span class="first-num-group">0000</span>
+              <span class="second-num-group">0000</span>
+              <span class="third-num-group">0000</span>
+              <span class="fourth-num-group">0000</span>
+            </div>
+            <div class="card-front-details-container">
+              <div class="card-front__name">Jane Appleseed</div>
+              <div class="card-front__expiration-date">00/00</div>
+            </div>
           </div>
         </div>
       </div>
@@ -67,26 +74,13 @@
 
                   <input type="text" name="year" id="year" placeholder="YY" />
                 </div>
-                <div class="invalid-message hidden">
-                  <!-- <div class="format-message">
-                    Wrong format,
-                    <span class="invalid-type">numbers only</span
-                    ><span>wrong pattern</span>
-                  </div>
-                  <div class="required-message">Can't be blank</div> -->
-                </div>
+                <div class="invalid-message hidden"></div>
               </fieldset>
             </div>
             <div class="form-col">
               <label for="cvc">CVC</label>
               <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" />
-              <div class="invalid-message hidden">
-                <!-- <div class="format-message">
-                  Wrong format, <span class="invalid-type">numbers only</span
-                  ><span>wrong pattern</span>
-                </div>
-                <div class="required-message">Can't be blank</div> -->
-              </div>
+              <div class="invalid-message hidden"></div>
             </div>
           </div>
         </div>
