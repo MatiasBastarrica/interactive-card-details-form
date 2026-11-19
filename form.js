@@ -1,3 +1,11 @@
+import {
+  updateName,
+  updateCardNumber,
+  updateMonth,
+  updateYear,
+  updateCvc,
+} from "./cards.js";
+
 export const elements = {
   cardholderName: document.querySelector("#cardholder-name"),
   cardNumber: document.querySelector("#card-number"),
@@ -54,6 +62,26 @@ function checkCvc(element) {
     return "Wrong format, pattern example: 123";
   }
 }
+
+elements.cardholderName.addEventListener("input", (e) => {
+  updateName(e.target.value);
+});
+
+elements.cardNumber.addEventListener("input", (e) => {
+  updateCardNumber(e.target.value);
+});
+
+elements.month.addEventListener("input", (e) => {
+  updateMonth(e.target.value);
+});
+
+elements.year.addEventListener("input", (e) => {
+  updateYear(e.target.value);
+});
+
+elements.cvc.addEventListener("input", (e) => {
+  updateCvc(e.target.value);
+});
 
 elements.btn.addEventListener("click", (e) => {
   e.preventDefault();
