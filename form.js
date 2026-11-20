@@ -7,7 +7,7 @@ import {
   resetCards,
 } from "./cards.js";
 
-import { showCompelteState } from "./complete-state.js";
+import { toggleCompelteState } from "./complete-state.js";
 
 export const elements = {
   cardholderName: document.querySelector("#cardholder-name"),
@@ -64,6 +64,14 @@ function checkCvc(element) {
   if (validationPatterns.cvc.test(element.value)) {
     return "Wrong format, pattern example: 123";
   }
+}
+
+export function resetForm() {
+  elements.cardholderName.value = "";
+  elements.cardNumber.value = "";
+  elements.month.value = "";
+  elements.year.value = "";
+  elements.cvc.value = "";
 }
 
 elements.cardholderName.addEventListener("input", (e) => {
@@ -188,6 +196,6 @@ elements.btn.addEventListener("click", (e) => {
 
   if (allValid) {
     resetCards();
-    showCompelteState();
+    toggleCompelteState();
   }
 });
