@@ -54,3 +54,13 @@ export function updateCvc(value) {
   let paddedValue = value.padEnd(3, "0");
   elements.cvc.innerText = paddedValue;
 }
+
+export function resetCards() {
+  elements.cardNumGroups.forEach((cardNumGroup) => {
+    cardNumGroup.innerText = "0000";
+  });
+  elements.name.innerText = "Jane Applesead";
+  elements.expiration_month.innerText = "00";
+  elements.expiration_year.innerText = "00";
+  elements.cvc.innerText = "000";
+}

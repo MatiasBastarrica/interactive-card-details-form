@@ -4,6 +4,7 @@ import {
   updateMonth,
   updateYear,
   updateCvc,
+  resetCards,
 } from "./cards.js";
 
 import { showCompelteState } from "./complete-state.js";
@@ -186,6 +187,7 @@ elements.btn.addEventListener("click", (e) => {
   }
 
   if (allValid) {
+    resetCards();
     showCompelteState();
   }
 });
