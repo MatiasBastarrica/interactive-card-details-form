@@ -6,6 +6,8 @@ import {
   updateCvc,
 } from "./cards.js";
 
+import { showCompelteState } from "./complete-state.js";
+
 export const elements = {
   cardholderName: document.querySelector("#cardholder-name"),
   cardNumber: document.querySelector("#card-number"),
@@ -91,11 +93,13 @@ elements.btn.addEventListener("click", (e) => {
   const invalidMsgMonthAndYear =
     elements.month.parentElement.nextElementSibling;
   const invalidMsgCvc = elements.cvc.nextElementSibling;
+  let allValid = true;
 
   if (checkEmptyInput(elements.cardholderName)) {
     invalidMsgCardholderName.classList.remove("hidden");
     invalidMsgCardholderName.innerText = "Can't be blank";
     elements.cardholderName.setCustomValidity("Can't be blank");
+    allValid = false;
   } else {
     invalidMsgCardholderName.classList.add("hidden");
     elements.cardholderName.setCustomValidity("");
@@ -105,10 +109,12 @@ elements.btn.addEventListener("click", (e) => {
     invalidMsgCardNumber.classList.remove("hidden");
     invalidMsgCardNumber.innerText = "Can't be blank";
     elements.cardNumber.setCustomValidity("Can't be blank");
+    allValid = false;
   } else if (!checkNumericAndSpacesInput(elements.cardNumber)) {
     invalidMsgCardNumber.classList.remove("hidden");
     invalidMsgCardNumber.innerText = "Wrong format, numbers only";
     elements.cardNumber.setCustomValidity("Wrong format, numbers only");
+    allValid = false;
   } else if (!checkCardNumberInput(elements.cardNumber)) {
     invalidMsgCardNumber.classList.remove("hidden");
     invalidMsgCardNumber.innerText =
@@ -116,6 +122,7 @@ elements.btn.addEventListener("click", (e) => {
     elements.cardNumber.setCustomValidity(
       "Wrong format, pattern example: 9591 6489 6389 1010",
     );
+    allValid = false;
   } else {
     invalidMsgCardNumber.classList.add("hidden");
     elements.cardNumber.setCustomValidity("");
@@ -125,28 +132,34 @@ elements.btn.addEventListener("click", (e) => {
     invalidMsgMonthAndYear.classList.remove("hidden");
     invalidMsgMonthAndYear.innerText = "Can't be blank";
     elements.month.setCustomValidity("Can't be blank");
+    allValid = false;
   } else if (!checkNumericOnlyInput(elements.month)) {
     invalidMsgMonthAndYear.classList.remove("hidden");
     invalidMsgMonthAndYear.innerText = "Wrong format, numbers only";
     elements.month.setCustomValidity("Wrong format, numbers only");
+    allValid = false;
   } else if (!checkMonth(elements.month)) {
     invalidMsgMonthAndYear.classList.remove("hidden");
     invalidMsgMonthAndYear.innerText = "Wrong format, pattern example: 09";
     elements.month.setCustomValidity("Wrong format, pattern example: 09");
+    allValid = false;
   } else if (checkEmptyInput(elements.year)) {
     elements.month.setCustomValidity("");
     invalidMsgMonthAndYear.classList.remove("hidden");
     invalidMsgMonthAndYear.innerText = "Can't be blank";
     elements.year.setCustomValidity("Can't be blank");
     elements.year.setCustomValidity("Can't be blank");
+    allValid = false;
   } else if (!checkNumericOnlyInput(elements.year)) {
     invalidMsgMonthAndYear.classList.remove("hidden");
     invalidMsgMonthAndYear.innerText = "Wrong format, numbers only";
     elements.year.setCustomValidity("Wrong format, numbers only");
+    allValid = false;
   } else if (!checkMonth(elements.year)) {
     invalidMsgMonthAndYear.classList.remove("hidden");
     invalidMsgMonthAndYear.innerText = "Wrong format, pattern example: 01";
     elements.year.setCustomValidity("Wrong format, pattern example: 01");
+    allValid = false;
   } else {
     invalidMsgMonthAndYear.classList.add("hidden");
     elements.year.setCustomValidity("");
@@ -155,17 +168,24 @@ elements.btn.addEventListener("click", (e) => {
   if (checkEmptyInput(elements.cvc)) {
     invalidMsgCvc.classList.remove("hidden");
     invalidMsgCvc.innerText = "Can't be blank";
+    allValid = false;
     elements.cvc.setCustomValidity("Can't be blank");
   } else if (!checkNumericOnlyInput(elements.cvc)) {
     invalidMsgCvc.classList.remove("hidden");
     invalidMsgCvc.innerText = "Wrong format, numbers only";
     elements.cvc.setCustomValidity("Wrong format, numbers only");
+    allValid = false;
   } else if (!checkCvc(elements.cvc)) {
     invalidMsgCvc.classList.remove("hidden");
     invalidMsgCvc.innerText = "Wrong format, pattern example: 123";
     elements.cvc.setCustomValidity("Wrong format, pattern example: 123");
+    allValid = false;
   } else {
     invalidMsgCvc.classList.add("hidden");
     elements.cvc.setCustomValidity("");
+  }
+
+  if (allValid) {
+    showCompelteState();
   }
 });
